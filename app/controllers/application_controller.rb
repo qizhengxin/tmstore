@@ -25,5 +25,8 @@ class ApplicationController < ActionController::Base
      session[:cart_id] = cart.id
      return cart
    end
- 
+
 end
+
+
+# 进来是先找这里的东西有什么要执行的 然后再去其他controller去找
