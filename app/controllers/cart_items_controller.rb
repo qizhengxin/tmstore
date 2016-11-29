@@ -11,7 +11,7 @@ class CartItemsController < ApplicationController
    flash[:warning] = "成功将 #{@product.title} 从购物车删除!"
    redirect_to :back
   end
-
+  
   def update
     @cart = current_cart
     @cart_item = @cart.cart_items.find_by(product_id: params[:id])
