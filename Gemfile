@@ -34,8 +34,10 @@ gem "simple_form"
 gem "devise"
 gem "annotate"
 gem "font-awesome-rails"
-gem "carrierwave"
+#gem "carrierwave"
 gem "mini_magick"
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
 
 
 group :development, :test do

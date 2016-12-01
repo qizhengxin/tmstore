@@ -10,13 +10,13 @@ class OrdersController < ApplicationController
         if @order.save
           redirect_to order_path(@order)
         else
-          render 'cart/checkout'
+          render 'carts/checkout'
         end
       end
 
       private
 
       def order_params
-        parama.require(:order),permit(:billing_name, :billing_address, :shipping_name, :shipping_address)
+        params.require(:order).permit(:billing_name, :billing_address, :shipping_name, :shipping_address)
       end
 end
