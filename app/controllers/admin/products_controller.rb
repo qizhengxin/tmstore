@@ -42,22 +42,30 @@ class Admin::ProductsController < ApplicationController
 
   def create
      @proudct = Product.new(product_params)
-
-     if @proudct.save
-       if params[:photos] !=nil
+     if @proudct.save!
+       if params[:photos] != nil
          params[:photos]['avatar'].each do |a|
            @photo = @product.photos.create(:avatar => a)
          end
        end
+           #binding.pry
        redirect_to admin_products_path
+
      else
        render :new
      end
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    flash[:alert] = "Product deleted"
+    redirect_to :back
+  end
+
   private
 
    def product_params
-     params.require(:product).permit(:title, :description, :quantity, :price, :image)
+     params.require(:product).permit(:title, :description, :quantity, :price)
    end
 end
