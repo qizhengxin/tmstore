@@ -7,6 +7,22 @@ class OrdersController < ApplicationController
        @product_lists = @order.product_lists
      end
 
+    def pay_with_alipay
+      @order = Order.find_by_token(params[:id])
+      @order.set_payment_with!("alipay")
+      @order.pay!
+
+      redirect_to order_path(@order.token), notice: "paid by alipay"
+    end
+
+    def pay_with_wechat
+      @order = Order.find_by_token(params[:id])
+      @order = set_payment_with!("wechat")
+      @order.pay!
+
+      redirect_to order_path(@order.token), notice: "paid by wechat"
+    end
+    
       def create
         @order = Order.new(order_params)
         @order.user = current_user
