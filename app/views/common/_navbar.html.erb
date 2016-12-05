@@ -33,6 +33,10 @@
               <li>
                 <%= link_to("管理者", admin_products_path ) %>
               </li>
+              <% else current_user.admin? %>
+              <li>
+                <%= link_to("商家", admin_users_path ) %>
+              </li>
               <% end %>
 
               <li><%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>

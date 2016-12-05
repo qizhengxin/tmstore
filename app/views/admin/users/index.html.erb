@@ -1,0 +1,29 @@
+<h2> 商家信息 </h2>
+<hr>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>用户号</th>
+      <th>用户邮箱</th>
+      <th>商家状态</th>
+      <th>审核</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td> <%= user.id %> </td>
+      <td> <%= user.email %> </td>
+      <td>
+        <% if user.is_admin? %>
+           商家
+        <% else %>
+          非商家
+        <% end %>
+      </td>
+    </tr>
+
+    <% end %>
+  </tbody>
+
+</table>

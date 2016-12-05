@@ -41,14 +41,14 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-     @proudct = Product.new(product_params)
-     if @proudct.save!
-       if params[:photos] != nil
-         params[:photos]['avatar'].each do |a|
-           @photo = @product.photos.create(:avatar => a)
-         end
+     @product = Product.new(product_params)
+     if @product.save
+     if params[:photos] != nil
+       params[:photos]['avatar'].each do |a|
+         @photo = @product.photos.create(:avatar => a)
        end
-           #binding.pry
+     end
+
        redirect_to admin_products_path
 
      else
