@@ -6,9 +6,7 @@ Rails.application.routes.draw do
      resources :users
    end
 
-  #  namespace :admin do
-  #    resources :stores
-  #  end
+
 
     resources :products do
       member do
@@ -30,6 +28,10 @@ Rails.application.routes.draw do
         post :pay_with_alipay
         post :pay_with_wechat
       end
+    end
+
+    namespace :account do
+      resources :orders
     end
 
    root 'products#index'
