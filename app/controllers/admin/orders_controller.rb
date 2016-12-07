@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   layout "admin"
-  before_action :authenticate_user
+  before_action :authenticate_user!
   before_action :admin_required
 
   def index
@@ -26,7 +26,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def cancel
-    @order = Ooder.find(params[:id])
+    @order = Order.find(params[:id])
     @order.cancell_order!
     OrderMailer.notify_cancel(@order).deliver!
     redirect_to :back
