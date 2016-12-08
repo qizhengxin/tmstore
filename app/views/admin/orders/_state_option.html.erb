@@ -2,6 +2,7 @@
   <% case order.aasm_state %>
   <% when "order_placed" %>
   <%= link_to("取消订单", cancel_admin_order_path(order),
+      #  cancel_admin_order_path 是连接到controller里的 def cancel (order)这括号里的东西是为了调用controller里的变量
                          class: "btn btn-default btn-sm", method: :post) %>
   <% when "paid" %>
   <%= link_to("取消订单", cancel_admin_order_path(order),
@@ -23,5 +24,5 @@
    <% when "good_returned" %>
     <span class="label label-default">已退货</span>
 
-  <% end %>                                                                            
+  <% end %>
 </div>

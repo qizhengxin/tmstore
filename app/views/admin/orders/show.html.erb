@@ -14,8 +14,11 @@
       </thead>
       <tbody>
         <% @product_lists.each do |product_list| %>
+        <!--# 把 @product_lists 里的每一个 放到 |product_list| 此为常量
+      |product_list| 是 @product_lists 里的一条  代替前面的 实例变量 -->
         <tr>
           <td><%= product_list.product_name %></td>
+        <!-- # 这里的 product_list 为常量  就是上边定义好的|product_list| -->
           <td><%= product_list.product_price %></td>
           <td><%= product_list.quantity %></td>
         </tr>
@@ -23,7 +26,7 @@
 
       </tbody>
     </table>
-    
+
      <div class="total clearfix">
        <span class="pull-right">
          总计 <%= @order.total %> CNY
