@@ -13,7 +13,7 @@ class OrderMailer < ApplicationMailer
     @user = order.user
     @product_lists = @order.product_lists
 
-    mail(to: "admin@test.com", subject: "[tmstore] 用户#{order.user.email}申请取消订单 #{order.token}" )
+    mail(to: "1@1.com", subject: "[tmstore] 用户#{order.user.email}申请取消订单 #{order.token}" )
   end
 
   def notify_ship(order)
@@ -21,7 +21,7 @@ class OrderMailer < ApplicationMailer
     @user = order.user
     @product_lists = @order.product_lists
 
-    mail(to: @uesr.email, subject: "[tmstore] 您的订单 #{order.token}已发货")
+    mail(to: @user.email, subject: "[tmstore] 您的订单 #{order.token}已发货")
   end
 
   def notify_cancel(order)

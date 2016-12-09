@@ -33,11 +33,13 @@
               <li>
                 <%= link_to("管理者", admin_products_path ) %>
               </li>
+              <li>
+                <%= link_to("所有订单", admin_orders_path ) %>
+              </li>
               <% end %>
               <li>
                 <%= link_to("个人订单", account_orders_path ) %>
               </li>
-            
 
               <li><%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>
                                             <!-- 这是ruby语法 -->
